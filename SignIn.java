@@ -8,6 +8,9 @@ public class SignIn {
     static LinkedList<String> Email = new LinkedList<String>(); // making these linkedlist static so it can be accessed in the main class
     static LinkedList<String> Password = new LinkedList<String>(); // declare the number to string, so it could fit more characters
     static LinkedList<String> Username = new LinkedList<String>();
+
+    static LinkedList<User> users = new LinkedList<>(); // Store user objects
+
     public static void handleSignIn() {
 
         Scanner mandy = new Scanner(System.in);  // Create a Scanner object
@@ -44,6 +47,7 @@ public class SignIn {
     }
 
     // this verify credentials is used to connect the data inside this signin class towards the main class. in order to check the inputted acc info from the user.
+    // this verify credentials is used to connect the data inside this signin class towards the main class. in order to check the inputted acc info from the user.
     public static boolean verifyCredentials(String email, String password) {
         // Check if the entered email and password match the stored data
         for (int i = 0; i < Email.size(); i++) {
@@ -53,6 +57,27 @@ public class SignIn {
         }
         return false;
     }
+
+    public static Double getUserBalanceByUsername(String username) { // FIX THIS
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user.getBalance();
+            }
+        }
+        return null; // Return null if user not found
+    }
+
+    public static void updateUserBalance(String username, double newBalance) { // AND FIX THIS
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                user.setBalance(newBalance);
+                System.out.println("Updated balance for " + username + ": " + newBalance);
+                return;
+            }
+        }
+        System.out.println("User not found.");
+    }
+
 }
 
 
