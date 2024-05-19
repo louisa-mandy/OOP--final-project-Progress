@@ -35,18 +35,21 @@ public class Main {
             System.out.println("Welcome to our our Parking Ticket program ");
             System.out.println(" ");
             System.out.println("Enter a choice :  ");
-            System.out.println("1. Don't have an account yet? Sign In \n2. Log In Account");
+            System.out.println("1. Continue As Guest  \n2. Don't have an account yet? Sign In \n3. Log In Account");
 
 
             String user_input = mandy.nextLine(); // user input
 
 
             switch (user_input) {
-                case "1": // sign in
+                case "1": // continue as guest
+
+                    break;
+                case "2": // sign in
                     SignIn.handleSignIn();
                     break;
 
-                case "2": ///login
+                case "3": ///login
                     //after user would log in
                     //make another switch statement and provide the rest of the options
 
@@ -73,6 +76,8 @@ public class Main {
                             System.out.println("Invalid email or password. Please try again.");
                         }
                         break;
+
+
 
 
 
