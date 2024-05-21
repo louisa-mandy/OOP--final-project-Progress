@@ -1,5 +1,7 @@
 package Parking_Ticket;
+
 //idea
+
 
 /* make a Parking_Ticket.parking ticket program */
 
@@ -32,7 +34,7 @@ public class Main {
 
         while (true) {
             System.out.println(" ");
-            System.out.println("Welcome to our our Parking Ticket program ");
+            System.out.println("Welcome to our our Ticket Parking program ");
             System.out.println(" ");
             System.out.println("Enter a choice :  ");
             System.out.println("1. Continue As Guest  \n2. Don't have an account yet? Sign In \n3. Log In Account");
