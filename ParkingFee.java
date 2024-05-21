@@ -18,6 +18,7 @@ public class ParkingFee {
         System.out.println("Enter your type of vehicle: ");
         System.out.println("1. Car \n2. Motorcycle \n3.Truck");
         String input = mandy.nextLine();
+        Integer input2 = mandy.nextInt();
 
         switch (input) {
             case "Car":
