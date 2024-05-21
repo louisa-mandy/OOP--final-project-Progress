@@ -31,15 +31,24 @@ public class SignIn {
         System.out.println("Enter Your Username : "); // string
         String username = mandy.next();
 
+        //default balance
+        double initialBalance = 50;
+
+        //create a new user and ass to the users list
+        User newUser = new User (email, password, username,initialBalance);
+
+
         Email.add(email);
         Password.add(password);
         Username.add(username); // adding the acc info inside each linked list
+        users.add(newUser);
 
         System.out.println("You have successfully created an account!");
         System.out.println(" ");
         System.out.println("Email : " + email); // displaying the acc info from the user input
         System.out.println("Password : " + password);
         System.out.println("Username : " + username);
+        System.out.println("Balance : $" + initialBalance);
         System.out.println(" ");
         System.out.println("Please proceed to the login option ");
 
@@ -58,20 +67,20 @@ public class SignIn {
         return false;
     }
 
-    public static Double getUserBalanceByUsername(String username) { // FIX THIS
+    public static Double getUserBalanceByUsername(String username) {
         for (User user : users) {
-            if (user.getUsername().equals(username)) {
+            if (username.equals(user.getUsername())) {
                 return user.getBalance();
             }
         }
         return null; // Return null if user not found
     }
 
-    public static void updateUserBalance(String username, double newBalance) { // AND FIX THIS
+    public static void updateUserBalance(String username, double newBalance) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
                 user.setBalance(newBalance);
-                System.out.println("Updated balance for " + username + ": " + newBalance);
+                System.out.println("Updated balance for " + username + ": $" + newBalance);
                 return;
             }
         }
