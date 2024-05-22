@@ -10,24 +10,20 @@ package Parking_Ticket;
 
 // user would input their vehicle type ( car, motorcycle, truck )
 // user would input the amount of time they have spent Parking_Ticket.parking in the area
-// user would choose between two options, whether they are a regular member / gold member / platinum member
-// regular member = 5% discount, gold member = 10% discount, platinum member = 20% discount
 // the output would show the total amount they have to pay for the Parking_Ticket.parking fee
 
-// user could make a member depending on the amount of balance they have in their card
-// for example, to upgrade member, the user would have to have at least 500$ ??
 
 /* output :
 *  1. check your card balance
 *  2. top up your card
-*  3. register a membership - input account and password??
+*  3. register an account - input account and password??
 *  3. pay Parking_Ticket.parking fee */
 
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] HAHA) {
+    public static void main(String[] args) {
 
 
         Scanner mandy = new Scanner(System.in); // create the scanner
@@ -37,21 +33,21 @@ public class Main {
             System.out.println("Welcome to our our Ticket Parking program ");
             System.out.println(" ");
             System.out.println("Enter a choice :  ");
-            System.out.println("1. Continue As Guest  \n2. Don't have an account yet? Sign In \n3. Log In Account");
+            System.out.println("1. Continue As Guest  \n2. Don't have an account yet? Sign In \n3. Log In Account \n4. Exit Program");
 
 
-            String user_input = mandy.nextLine(); // user input
+            Integer user_input = mandy.nextInt(); // user input
 
 
             switch (user_input) {
-                case "1": // continue as guest
-
+                case 1: // continue as guest
+                    guest.handleGuest();
                     break;
-                case "2": // sign in
+                case 2: // sign in
                     SignIn.handleSignIn();
                     break;
 
-                case "3": ///login
+                case 3: ///login
                     //after user would log in
                     //make another switch statement and provide the rest of the options
 
@@ -78,6 +74,13 @@ public class Main {
                             System.out.println("Invalid email or password. Please try again.");
                         }
                         break;
+                case 4:
+                    // stop program
+
+                    System.out.println("Exiting program");
+                    mandy.close(); // closing the scanner
+                    System.exit(0);
+                    break;
 
 
 
