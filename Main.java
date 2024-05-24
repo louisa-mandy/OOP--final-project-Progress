@@ -19,18 +19,31 @@ package Parking_Ticket;
 *  3. register an account - input account and password??
 *  3. pay Parking_Ticket.parking fee */
 
+
+import javax.swing.ImageIcon;
+import javax.swing.*;
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+import java.util.InputMismatchException;
+
 public class Main {
+
+
+
     public static void main(String[] args) {
 
-
+        Jframe.handleJframe();
+        //program
         Scanner mandy = new Scanner(System.in); // create the scanner
 
+
         while (true) {
+
+
             System.out.println(" ");
-            System.out.println("Welcome to our our Ticket Parking program ");
+            System.out.println("Welcome to our our Parking Ticket program ");
             System.out.println(" ");
             System.out.println("Enter a choice :  ");
             System.out.println("1. Continue As Guest  \n2. Don't have an account yet? Sign In \n3. Log In Account \n4. Exit Program");
@@ -65,15 +78,15 @@ public class Main {
 
                     boolean found = SignIn.verifyCredentials(enteredEMAIL, enteredPASSWORD);
 
-                        if (found) {
-                            System.out.println(" ");
-                            System.out.println("Login Successful!");
+                    if (found) {
+                        System.out.println(" ");
+                        System.out.println("Login Successful!");
 
-                            parking.handleParking();
-                        } else {
-                            System.out.println("Invalid email or password. Please try again.");
-                        }
-                        break;
+                        parking.handleParking();
+                    } else {
+                        System.out.println("Invalid email or password. Please try again.");
+                    }
+                    break;
                 case 4:
                     // stop program
 
@@ -81,6 +94,10 @@ public class Main {
                     mandy.close(); // closing the scanner
                     System.exit(0);
                     break;
+                default:
+                    System.out.println("Invalid choice, Please try again");
+
+            }
 
 
 
@@ -89,4 +106,3 @@ public class Main {
             }
         }
     }
-}
