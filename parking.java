@@ -1,7 +1,7 @@
 package Parking_Ticket;
 
 import javax.sound.midi.Soundbank;
-import java.sql.SQLOutput;
+
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -19,9 +19,8 @@ public class parking {
             Scanner mandy = new Scanner(System.in);  // Create a Scanner object
             Integer login = mandy.nextInt(); // user input
 
-
             switch (login) {
-                case 1:
+                case 1: // check card balance
                     System.out.println("Check Card Balance");
                     System.out.println("Please Enter Your Username: ");
                     String usernameToCheck = mandy.next();
@@ -34,7 +33,7 @@ public class parking {
                     }
                     break;
 
-                case 2:
+                case 2: // top up card
                     System.out.println("Top Up Card Balance");
                     System.out.println("Please Enter Your Username: ");
                     String usernameToUpdate = mandy.next();
@@ -52,7 +51,7 @@ public class parking {
                     }
                     break;
 
-                case 3:
+                case 3: // pay paking fee
                     System.out.println("Pay Parking Fee");
                     Scanner payScanner = new Scanner(System.in);
 
@@ -101,14 +100,16 @@ public class parking {
                         } else {
                             System.out.println("User not found, please try again.");
                         }
+
                     } else if (transaction.equalsIgnoreCase("Cash")) {
-                        System.out.println("Total amount: $" + parkingFee + " in cash at the parking exit");
+
+                        guest.handleCash(payScanner, parkingFee);
                     } else {
                         System.out.println("Invalid input, please choose a valid payment option");
                     }
                     break;
 
-                case 4:
+                case 4: // return to previous page
                     System.out.println("Returning to the main menu...");
                     return; // Exit the handleParking method, returning to the main menu
 
