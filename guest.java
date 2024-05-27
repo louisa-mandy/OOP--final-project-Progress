@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class guest {
 
-    public static void handleGuest (){
+    public static void handleGuest () {
         System.out.println(" Pay Parking Fee ");
 
         Scanner Pay = new Scanner(System.in);
@@ -42,30 +42,34 @@ public class guest {
         double parkingFee = rate * Time;
         System.out.println("Total amount : $" + parkingFee + "in cash at the parking exit");
 
+        handleCash(Pay, parkingFee);
         // transaction
         // ask user for how much cash they will give
         // output : give them the remaining change in cash
 
+    }
+    public static void handleCash(Scanner Pay, double parkingFee){
+
+                System.out.println("Please input the amount of cash you will give.. ");
+                double GivenCash = Pay.nextDouble();
+
+                if (GivenCash < parkingFee) {
+                    System.out.println("Insufficient cash, please input an enough amount of cash");
+                } else if ( GivenCash == parkingFee ){
+                    System.out.println("The payment was a success! (no change needed) ");
+                }else {
+                    double Change = GivenCash - parkingFee;
+                    System.out.println("The payment was a success!, here is your change: $" + Change);
+                }
 
 
-        if (Transaction.equalsIgnoreCase("Cash")) {
-            System.out.println("Please input the amount of cash you will give.. ");
-            double GivenCash = Pay.nextDouble();
+        }
 
-            if (GivenCash < parkingFee) {
-                System.out.println("Insufficient cash, please input an enough amount of cash");
-            } else if ( GivenCash == parkingFee ){
-                System.out.println("The payment was a success! (no change needed) ");
-            }else {
-                double Change = GivenCash - parkingFee;
-                System.out.println("The payment was a success!, here is your change: $" + Change);
-            }
-
-        } else {
-            System.out.println("Invalid input, please choose a valid payment option");
+        public static void main(String[] args) {
+            handleGuest();
         }
 
 
 
-    }
 }
+
